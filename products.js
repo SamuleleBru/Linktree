@@ -1,11 +1,13 @@
 /* Catálogo TODOCOR: los productos se administran exclusivamente en products.json. */
 const PRODUCTS_URL = 'products.json';
+const OFFER_THRESHOLD = 50000;
+const OFFER_DISCOUNT_LOW = 5000;
+const OFFER_DISCOUNT_HIGH = 10000;
 
 const formatPrice = (price) => `$${Number(price).toLocaleString('es-CO')}`;
 const escapeHTML = (text) => String(text).replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;' })[char]);
-const discount = (product) => product.precioAnterior > product.precio
-  ? Math.round((1 - product.precio / product.precioAnterior) * 100)
-  : 0;
+const previousPrice = (product) => Number(product.precio) + (Number(product.precio) >= OFFER_THRESHOLD ? OFFER_DISCOUNT_HIGH : OFFER_DISCOUNT_LOW);
+const discount = (product) => Math.round((1 - product.precio / previousPrice(product)) * 100);
 
 async function getProducts() {
   const response = await fetch(PRODUCTS_URL);
@@ -15,10 +17,11 @@ async function getProducts() {
 
 function productCard(product) {
   const sale = discount(product);
+  const originalPrice = previousPrice(product);
   return `<article class="catalog-card">
     <a href="product.html?id=${product.id}" class="product-image"><img src="${escapeHTML(product.imagen)}" alt="${escapeHTML(product.nombre)}" />${sale ? `<span class="discount-badge">-${sale}%</span>` : ''}</a>
     <div class="catalog-card-content"><span class="category-label">${escapeHTML(product.categoria)}</span><h2>${escapeHTML(product.nombre)}</h2>
-    <div class="price-row"><strong>${formatPrice(product.precio)}</strong>${product.precioAnterior ? `<del>${formatPrice(product.precioAnterior)}</del>` : ''}</div>
+    <div class="price-row"><strong>${formatPrice(product.precio)}</strong><del>${formatPrice(originalPrice)}</del></div>
     <span class="availability ${product.disponible ? '' : 'not-available'}">${product.disponible ? '● Disponible' : '● Agotado'}</span>
     <div class="card-actions"><a href="product.html?id=${product.id}" class="secondary-button">Ver producto</a><a href="${whatsappLink(product)}" class="buy-button" target="_blank" rel="noopener">Comprar</a></div></div>
   </article>`;
@@ -68,8 +71,8 @@ async function renderProductDetail() {
     const id = Number(new URLSearchParams(window.location.search).get('id'));
     const product = (await getProducts()).find((item) => item.id === id);
     if (!product) { document.getElementById('missing-product').hidden = false; return; }
-    const sale = discount(product); document.title = `${product.nombre} | ${TODOCOR_CONFIG.brandName}`;
-    container.innerHTML = `<div class="detail-image"><img src="${escapeHTML(product.imagen)}" alt="${escapeHTML(product.nombre)}" />${sale ? `<span class="discount-badge">-${sale}%</span>` : ''}</div><div class="detail-content"><span class="category-label">${escapeHTML(product.categoria)}</span><h1>${escapeHTML(product.nombre)}</h1><div class="detail-price"><strong>${formatPrice(product.precio)}</strong>${product.precioAnterior ? `<del>${formatPrice(product.precioAnterior)}</del>` : ''}</div><p class="detail-description">${escapeHTML(product.descripcion)}</p><span class="availability ${product.disponible ? '' : 'not-available'}">${product.disponible ? '● Disponible para envío' : '● No disponible actualmente'}</span>${product.disponible ? `<a class="whatsapp-buy" href="${whatsappLink(product)}" target="_blank" rel="noopener">💬 COMPRAR POR WHATSAPP</a>` : ''}</div>`;
+    const sale = discount(product); const originalPrice = previousPrice(product); document.title = `${product.nombre} | ${TODOCOR_CONFIG.brandName}`;
+    container.innerHTML = `<div class="detail-image"><img src="${escapeHTML(product.imagen)}" alt="${escapeHTML(product.nombre)}" />${sale ? `<span class="discount-badge">-${sale}%</span>` : ''}</div><div class="detail-content"><span class="category-label">${escapeHTML(product.categoria)}</span><h1>${escapeHTML(product.nombre)}</h1><div class="detail-price"><strong>${formatPrice(product.precio)}</strong><del>${formatPrice(originalPrice)}</del></div><p class="detail-description">${escapeHTML(product.descripcion)}</p><span class="availability ${product.disponible ? '' : 'not-available'}">${product.disponible ? '● Disponible para envío' : '● No disponible actualmente'}</span>${product.disponible ? `<a class="whatsapp-buy" href="${whatsappLink(product)}" target="_blank" rel="noopener">💬 COMPRAR POR WHATSAPP</a>` : ''}</div>`;
   } catch (error) { document.getElementById('missing-product').hidden = false; }
 }
 
