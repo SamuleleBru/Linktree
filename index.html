@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#151032" />
+    <meta name="description" content="Descubre productos, ofertas y novedades de TODOCOR. Compra fácil y recibe tus productos en Montería." />
+    <meta property="og:title" content="TODOCOR | Todo lo que buscas, en un solo lugar" />
+    <meta property="og:description" content="Descubre productos, ofertas y novedades de TODOCOR. Compra fácil y recibe tus productos en Montería." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/logo.svg" />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+    <title>TODOCOR | Todo lo que buscas, en un solo lugar</title>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero reveal" aria-labelledby="brand-name">
+        <div class="brand-mark"><img id="brand-logo" src="assets/logo.svg" alt="Logo TODOCOR" /></div>
+        <p class="eyebrow">TIENDA ONLINE</p>
+        <h1 id="brand-name">TODOCOR</h1>
+        <p class="tagline" id="brand-description">Todo lo que buscas, en un solo lugar.</p>
+        <p class="subtag">Productos, ofertas y novedades <span aria-hidden="true">🔥</span></p>
+        <span class="shipping-badge">🚚 Envíos solo en Montería</span>
+      </section>
+
+      <nav class="links reveal" aria-label="Enlaces principales">
+        <!-- Los enlaces se configuran al inicio de script.js -->
+        <a class="link-card featured" data-link="products" href="#PRODUCTOS"><span class="link-icon">🛍️</span><span>VER PRODUCTOS</span><span class="arrow">→</span></a>
+        <a class="link-card" data-link="offers" href="#OFERTAS"><span class="link-icon">🔥</span><span>OFERTAS DEL DÍA</span><span class="arrow">→</span></a>
+        <a class="link-card" data-link="whatsapp" href="#WHATSAPP"><span class="link-icon">💬</span><span>PEDIR POR WHATSAPP</span><span class="arrow">→</span></a>
+        <a class="link-card" data-link="whatsappSecondary" href="#WHATSAPP-2"><span class="link-icon">💬</span><span>OTRA LÍNEA DE WHATSAPP</span><span class="arrow">→</span></a>
+        <a class="link-card" data-link="tiktok" href="#TIKTOK"><span class="link-icon">♪</span><span>SÍGUENOS EN TIKTOK</span><span class="arrow">→</span></a>
+        <a class="link-card" data-link="instagram" href="#INSTAGRAM"><span class="link-icon">◎</span><span>SÍGUENOS EN INSTAGRAM</span><span class="arrow">→</span></a>
+        <a class="link-card" data-link="facebook" href="#FACEBOOK"><span class="link-icon">f</span><span>VISÍTANOS EN FACEBOOK</span><span class="arrow">→</span></a>
+      </nav>
+
+      <section class="trust reveal" aria-labelledby="trust-title">
+        <h2 id="trust-title">¿Por qué TODOCOR?</h2>
+        <div class="trust-list">
+          <div><span>🚚</span><p>Envíos en<br />Montería</p></div>
+          <div><span>⚡</span><p>Atención<br />rápida</p></div>
+          <div><span>🔒</span><p>Compra<br />segura</p></div>
+        </div>
+      </section>
+
+      <section class="products reveal" aria-labelledby="products-title">
+        <div class="section-heading"><h2 id="products-title">🔥 Productos destacados</h2><a data-link="products" href="#PRODUCTOS">Ver todos</a></div>
+        <!-- Se llena automáticamente con los productos destacados de products.json. -->
+        <div class="product-grid" id="featured-products" aria-live="polite"></div>
+        <a class="all-products-button" data-link="products" href="products.html">VER TODOS LOS PRODUCTOS <span>→</span></a>
+      </section>
+
+      <section class="socials reveal" aria-label="Redes sociales">
+        <a data-link="tiktok" href="#TIKTOK" aria-label="TikTok">♪</a><a data-link="instagram" href="#INSTAGRAM" aria-label="Instagram">◎</a><a data-link="facebook" href="#FACEBOOK" aria-label="Facebook">f</a><a data-link="whatsapp" href="#WHATSAPP" aria-label="WhatsApp">◔</a>
+      </section>
+      <footer class="reveal"><strong id="footer-brand">TODOCOR</strong> © 2026 <span>•</span> Compra fácil. Compra seguro.<a href="#">Política de privacidad</a></footer>
+    </main>
+    <script src="script.js"></script>
+    <script src="products.js"></script>
+  </body>
+</html>

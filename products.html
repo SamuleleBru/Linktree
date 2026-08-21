@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#151032" />
+    <meta name="description" content="Explora el catálogo de productos de TODOCOR." />
+    <link rel="icon" href="assets/logo.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Productos | TODOCOR</title>
+  </head>
+  <body>
+    <main class="catalog-page page-shell">
+      <header class="catalog-header reveal">
+        <a class="back-link" href="index.html">← Volver al inicio</a>
+        <a class="mini-brand" href="index.html"><img id="brand-logo" src="assets/logo.svg" alt="Logo TODOCOR" /><span id="brand-name">TODOCOR</span></a>
+      </header>
+      <section class="catalog-intro reveal" aria-labelledby="catalog-title">
+        <p class="eyebrow">CATÁLOGO TODOCOR</p>
+        <h1 id="catalog-title">Todos nuestros productos</h1>
+        <p>Encuentra tus favoritos y escríbenos para hacer tu pedido.</p>
+      </section>
+      <section class="catalog-controls reveal" aria-label="Buscar y filtrar productos">
+        <label class="search-box" for="product-search"><span>⌕</span><input id="product-search" type="search" placeholder="Busca un producto..." autocomplete="off" /></label>
+        <div class="filter-list" id="category-filters" aria-label="Categorías"></div>
+      </section>
+      <p class="product-count" id="product-count" aria-live="polite"></p>
+      <section class="catalog-grid" id="catalog-products" aria-live="polite"></section>
+      <p class="empty-state" id="empty-state" hidden>No encontramos productos con esa búsqueda.</p>
+    </main>
+    <script src="script.js"></script>
+    <script src="products.js"></script>
+  </body>
+</html>
