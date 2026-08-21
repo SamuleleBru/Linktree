@@ -42,5 +42,16 @@
     "imagen": "assets/products/Manguera.png",
     "destacado": true,
     "disponible": true
+  },
+  {
+    "id": 5,
+    "nombre": "Bafle Bluetooth Portátil",
+    "descripcion": "Bafle bluetooth portátil con sonido potente y claro. Conéctalo fácil a tu celular sin cables y disfruta tu música en cualquier parte. Compacto, recargable y fácil de llevar.",
+    "precio": 23000,
+    "precioAnterior": 28000,
+    "categoria": "Tecnología",
+    "imagen": "assets/products/bafle-bluetooth.jpg",
+    "destacado": true,
+    "disponible": true
   }
 ]
