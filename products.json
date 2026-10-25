@@ -87,7 +87,7 @@
     "descripcion": "Estilo retro con detalles en perlas. Un sneaker diferente y elegante.",
     "imagen": "assets/products/adidas-campus-perlas.jpg",
     "precio": null,
-    "destacado": false,
+    "destacado": true,
     "disponible": true
   },
   {
@@ -113,7 +113,7 @@
     "descripcion": "Silueta chunky estilo retro que va con todo. Tendencia pura en un solo tenis.",
     "imagen": "assets/products/new-balance-9060.jpg",
     "precio": null,
-    "destacado": false,
+    "destacado": true,
     "disponible": true
   },
   {
@@ -178,7 +178,7 @@
     "descripcion": "Estética Y2K con suela tecnológica. El favorito de las que van a la moda.",
     "imagen": "assets/products/nike-v2k-run.jpg",
     "precio": null,
-    "destacado": false,
+    "destacado": true,
     "disponible": true
   },
   {
@@ -243,7 +243,7 @@
     "descripcion": "El Dunk que combina con todo, en su versión rosa. Dulce pero con carácter.",
     "imagen": "assets/products/nike-sb-dunk-rosa.jpg",
     "precio": null,
-    "destacado": false,
+    "destacado": true,
     "disponible": true
   },
   {
