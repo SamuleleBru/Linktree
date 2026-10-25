@@ -9,12 +9,12 @@ const TODOCOR_CONFIG = {
   mostrarRedes: false,
   categoriasActivas: ['Zapatos', 'Pantalones'],
   // Escribe el número con indicativo de país, sin +, espacios ni guiones.
-  whatsappNumber: '573022403413',
+  whatsappNumber: '573124101300',
   colors: { primary: '#ff5e4d', secondary: '#ffad4a', ink: '#17132e' },
   links: {
     products: 'products.html',
     offers: 'product.html?id=3',
-    whatsapp: 'https://wa.me/573022403413?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20producto%20de%20TODOCOR.',
+    whatsapp: 'https://wa.me/573124101300?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20producto%20de%20TODOCOR.',
     whatsappSecondary: 'https://wa.me/573116364100?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20un%20producto%20de%20TODOCOR.',
     tiktok: 'https://www.tiktok.com/@todocor.co?is_from_webapp=1&sender_device=pc',
     instagram: 'https://www.instagram.com/todocor.co/',
