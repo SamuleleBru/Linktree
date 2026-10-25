@@ -6,6 +6,8 @@ const TODOCOR_CONFIG = {
   brandName: 'TODOCOR',
   description: 'Todo lo que buscas, en un solo lugar.',
   logo: 'assets/logo.svg',
+  mostrarRedes: false,
+  categoriasActivas: ['Zapatos', 'Pantalones'],
   // Escribe el número con indicativo de país, sin +, espacios ni guiones.
   whatsappNumber: '573022403413',
   colors: { primary: '#ff5e4d', secondary: '#ffad4a', ink: '#17132e' },
@@ -40,6 +42,9 @@ function applyConfig() {
   document.querySelectorAll('[data-link]').forEach((element) => {
     const url = config.links[element.dataset.link];
     if (url) element.href = url;
+    if (['tiktok', 'instagram', 'facebook'].includes(element.dataset.link)) {
+      element.style.display = config.mostrarRedes ? '' : 'none';
+    }
   });
 }
 

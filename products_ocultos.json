@@ -1,0 +1,57 @@
+[
+  {
+    "id": 1,
+    "nombre": "Picador Multi de Verduras (Cortafrutas)",
+    "descripcion": "Picador multiuso con 12 cuchillas intercambiables de acero inoxidable. Pica y ralla verduras en segundos. Capacidad de 1,2 litros, fácil de limpiar, apto para lavavajillas, seguro y libre de BPA. Ahorra tiempo y esfuerzo en la cocina.",
+    "precio": 56000,
+    "precioAnterior": 56000,
+    "categoria": "Hogar",
+    "imagen": "assets/products/cortafrutas.jpg",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 2,
+    "nombre": "Máquina Profesional con Cable",
+    "descripcion": "Máquina profesional para corte de cabello y barbería. Motor de alto rendimiento V5000, cuchilla de acero ajustable y cable incluido. Kit de 9 piezas para un acabado profesional desde casa.",
+    "precio": 50000,
+    "precioAnterior": 50000,
+    "categoria": "Belleza",
+    "imagen": "assets/products/maquina-profesional.jpg",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 3,
+    "nombre": "Combo Teclado + Mouse",
+    "descripcion": "Combo de teclado con mouse incluido. Diseño moderno, cómodo y listo para usar. Ideal para trabajar, estudiar o jugar. ¡Llévate los dos por el precio de uno!",
+    "precio": 50000,
+    "precioAnterior": 50000,
+    "categoria": "Tecnología",
+    "imagen": "assets/products/teclado-mouse.jpg",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 4,
+    "nombre": "Manguera Mágica Expandible",
+    "descripcion": "Manguera expandible liviana que se estira hasta 3x (aprox. 22,5 m / 75 ft). Fácil de guardar, no se enreda y no ocupa espacio. Incluye conector y pistola. Ideal para regar, lavar el carro o limpiar el patio.",
+    "precio": 45000,
+    "precioAnterior": 45000,
+    "categoria": "Hogar",
+    "imagen": "assets/products/manguera-expandible.jpg",
+    "destacado": true,
+    "disponible": true
+  },
+  {
+    "id": 5,
+    "nombre": "Bafle Bluetooth Portátil",
+    "descripcion": "Bafle bluetooth portátil con sonido potente y claro. Conéctalo fácil a tu celular sin cables y disfruta tu música en cualquier parte. Compacto, recargable y fácil de llevar.",
+    "precio": 23000,
+    "precioAnterior": 23000,
+    "categoria": "Tecnología",
+    "imagen": "assets/products/bafle-bluetooth.jpg",
+    "destacado": true,
+    "disponible": true
+  }
+]
