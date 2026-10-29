@@ -8,6 +8,7 @@ const catalogs = ['products.json', 'products_ocultos.json'];
 const htmlFiles = ['index.html', 'products.html', 'product.html'];
 const errors = [];
 const referencedImages = new Set();
+const normalizeImagePath = (imagePath) => process.platform === 'win32' ? imagePath.toLowerCase() : imagePath;
 
 function reportError(message) {
   errors.push(message);
@@ -63,7 +64,7 @@ for (const catalogPath of catalogs) {
       } else if (!existsSync(imagePath)) {
         reportError(`${location}: image not found at ${product.imagen}.`);
       } else {
-        referencedImages.add(imagePath);
+        referencedImages.add(normalizeImagePath(imagePath));
       }
     }
   }
@@ -89,7 +90,7 @@ for (const htmlPath of htmlFiles) {
 
 const unreferencedImages = readdirSync(productImageDirectory)
   .map((filename) => path.join(productImageDirectory, filename))
-  .filter((imagePath) => !referencedImages.has(imagePath));
+  .filter((imagePath) => !referencedImages.has(normalizeImagePath(imagePath)));
 if (unreferencedImages.length > 0) {
   console.warn('Unreferenced product assets (review before removing):');
   for (const imagePath of unreferencedImages) {

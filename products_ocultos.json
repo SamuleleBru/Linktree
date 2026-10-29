@@ -50,7 +50,7 @@
     "precio": 23000,
     "precioAnterior": 23000,
     "categoria": "Tecnología",
-    "imagen": "assets/products/Bafle.png",
+    "imagen": "assets/products/bafle.png",
     "destacado": true,
     "disponible": true
   }
