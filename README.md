@@ -6,7 +6,7 @@ Tienda estática hecha con HTML, CSS y JavaScript. No usa framework, servidor pr
 
 El repositorio de GitHub está conectado a Vercel. Los cambios que se suban a `main` se publican desde esa integración; los workflows de este repositorio no despliegan el sitio. GitHub Pages ya no es el destino de producción.
 
-El workflow **Validate static site** revisa la sintaxis de JavaScript, los catálogos JSON y las referencias locales de las páginas. Se ejecuta en cambios a `main`, pull requests hacia `main` y manualmente desde GitHub Actions. No compila ni necesita instalar paquetes.
+El workflow **Validate static site** revisa la sintaxis de JavaScript, los catálogos JSON, las referencias locales de las páginas y reporta medios de producto sin referencia para revisión. Se ejecuta en cambios a `main`, pull requests hacia `main` y manualmente desde GitHub Actions. No compila ni necesita instalar paquetes.
 Esta validación es independiente del despliegue de Vercel; revisa sus resultados antes de publicar cambios.
 
 Para comprobar los archivos localmente:

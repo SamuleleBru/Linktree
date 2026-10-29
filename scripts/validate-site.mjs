@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -7,6 +7,7 @@ const productImageDirectory = path.join(root, 'assets', 'products');
 const catalogs = ['products.json', 'products_ocultos.json'];
 const htmlFiles = ['index.html', 'products.html', 'product.html'];
 const errors = [];
+const referencedImages = new Set();
 
 function reportError(message) {
   errors.push(message);
@@ -61,6 +62,8 @@ for (const catalogPath of catalogs) {
         reportError(`${location}: imagen must point inside assets/products/.`);
       } else if (!existsSync(imagePath)) {
         reportError(`${location}: image not found at ${product.imagen}.`);
+      } else {
+        referencedImages.add(imagePath);
       }
     }
   }
@@ -81,6 +84,16 @@ for (const htmlPath of htmlFiles) {
     if (!target.startsWith(`${root}${path.sep}`) || !existsSync(target)) {
       reportError(`${htmlPath}: local reference not found: ${reference}.`);
     }
+  }
+}
+
+const unreferencedImages = readdirSync(productImageDirectory)
+  .map((filename) => path.join(productImageDirectory, filename))
+  .filter((imagePath) => !referencedImages.has(imagePath));
+if (unreferencedImages.length > 0) {
+  console.warn('Unreferenced product assets (review before removing):');
+  for (const imagePath of unreferencedImages) {
+    console.warn(`- ${path.relative(root, imagePath).split(path.sep).join('/')}`);
   }
 }
 
