@@ -8,13 +8,17 @@ const SUBCATEGORIES = ['Mujer', 'Hombre'];
 const formatPrice = (price) => `$${Number(price).toLocaleString('es-CO')}`;
 const escapeHTML = (text) => String(text).replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#039;', '"': '&quot;' })[char]);
 const hasPrice = (product) => product.precio !== null && product.precio !== undefined && product.precio !== '';
-const previousPrice = (product) => Number(product.precio) + (Number(product.precio) >= OFFER_THRESHOLD ? OFFER_DISCOUNT_HIGH : OFFER_DISCOUNT_LOW);
+const previousPrice = (product) => {
+  const configuredPrice = Number(product.precioAnterior);
+  if (Number.isFinite(configuredPrice) && configuredPrice > Number(product.precio)) return configuredPrice;
+  return Number(product.precio) + (Number(product.precio) >= OFFER_THRESHOLD ? OFFER_DISCOUNT_HIGH : OFFER_DISCOUNT_LOW);
+};
 const discount = (product) => hasPrice(product) ? Math.round((1 - product.precio / previousPrice(product)) * 100) : 0;
 const isActiveCategory = (product) => TODOCOR_CONFIG.categoriasActivas.includes(product.categoria);
 
 function askLink(product) {
   const message = `Hola TODOCOR, quiero información de: ${product.nombre}`;
-  return `https://wa.me/573124101300?text=${encodeURIComponent(message)}`;
+  return buildWhatsAppLink(message);
 }
 
 async function getProducts() {
@@ -33,13 +37,13 @@ function productCard(product) {
     <div class="catalog-card-content"><span class="category-label">${escapeHTML(product.categoria)}</span><h2>${escapeHTML(product.nombre)}</h2>
     <div class="price-row">${priceContent}</div>
     <span class="availability ${product.disponible ? '' : 'not-available'}">${product.disponible ? '● Disponible' : '● Agotado'}</span>
-    <div class="card-actions"><a href="product.html?id=${product.id}" class="secondary-button">Ver producto</a>${hasPrice(product) ? `<a href="${whatsappLink(product)}" class="buy-button" target="_blank" rel="noopener">Comprar</a>` : ''}</div></div>
+    <div class="card-actions"><a href="product.html?id=${product.id}" class="secondary-button">Ver producto</a>${hasPrice(product) && product.disponible ? `<a href="${whatsappLink(product)}" class="buy-button" target="_blank" rel="noopener">Comprar</a>` : ''}</div></div>
   </article>`;
 }
 
 function whatsappLink(product) {
   const message = `Hola ${TODOCOR_CONFIG.brandName} 👋, estoy interesado en el ${product.nombre} por ${formatPrice(product.precio)}.`;
-  return `https://wa.me/${TODOCOR_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  return buildWhatsAppLink(message);
 }
 
 async function renderFeaturedProducts() {
