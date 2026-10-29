@@ -35,7 +35,7 @@
     "descripcion": "Ícono con puntera cáscara y suela gruesa. Estilo urbano que destaca en cualquier look.",
     "imagen": "assets/products/adidas-superstar-bold.jpg",
     "precio": null,
-    "destacado": false,
+    "destacado": true,
     "disponible": true
   },
   {
@@ -386,7 +386,7 @@
     "descripcion": "Jeans Americanino para dama. Estilo colombiano, comodidad y un calce que favorece tu figura.",
     "imagen": "assets/products/AMERICANINO 1.jpeg",
     "precio": null,
-    "destacado": false,
+    "destacado": true,
     "disponible": true
   },
   {
@@ -516,7 +516,7 @@
     "descripcion": "Jeans Americanino para caballero. Corte clásico, cómodo y resistente para el día a día.",
     "imagen": "assets/products/americanino hombre.jpeg",
     "precio": null,
-    "destacado": false,
+    "destacado": true,
     "disponible": true
   },
   {
@@ -841,7 +841,7 @@
     "descripcion": "Tenis para caballero, cómodos y con diseño actual. Consulta tu talla y disponibilidad por WhatsApp.",
     "imagen": "assets/products/zapato-hombre-01.jpg",
     "precio": null,
-    "destacado": false,
+    "destacado": true,
     "disponible": true
   },
   {
